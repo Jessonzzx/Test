@@ -5,6 +5,18 @@ VisualStudioVersion = 25.0.1706.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TowardAgarioStepOne", "TowardAgarioStepOne\TowardAgarioStepOne.csproj", "{9DB8330E-1793-4D1A-87DF-0157F21600CD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TowardAgarioStepTwo", "TowardAgarioStepTwo\TowardAgarioStepTwo.csproj", "{AF249E25-2151-431F-A57F-D3A934646F67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TowardAgarioStepThree", "TowardAgarioStepThree\TowardAgarioStepThree.csproj", "{B74928BE-F1FC-4CBF-BBC8-D1076584896F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Communiactions", "Communiactions\Communiactions.csproj", "{864B7927-7482-4677-96EC-6D2FE240F9C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggerLibrary", "LoggerLibrary\LoggerLibrary.csproj", "{5CCFB0AE-8CFF-4EF2-91A3-CAC179114139}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgarioModels", "AgarioModels\AgarioModels.csproj", "{8FF59033-1A5C-4A6C-A6DB-C169AD44D395}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientGUI", "ClientGUI\ClientGUI.csproj", "{15E6B344-EB69-4DA5-82F3-D579BDD3C4BD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +27,30 @@ Global
 		{9DB8330E-1793-4D1A-87DF-0157F21600CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9DB8330E-1793-4D1A-87DF-0157F21600CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9DB8330E-1793-4D1A-87DF-0157F21600CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF249E25-2151-431F-A57F-D3A934646F67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF249E25-2151-431F-A57F-D3A934646F67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF249E25-2151-431F-A57F-D3A934646F67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF249E25-2151-431F-A57F-D3A934646F67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B74928BE-F1FC-4CBF-BBC8-D1076584896F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B74928BE-F1FC-4CBF-BBC8-D1076584896F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B74928BE-F1FC-4CBF-BBC8-D1076584896F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B74928BE-F1FC-4CBF-BBC8-D1076584896F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{864B7927-7482-4677-96EC-6D2FE240F9C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{864B7927-7482-4677-96EC-6D2FE240F9C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{864B7927-7482-4677-96EC-6D2FE240F9C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{864B7927-7482-4677-96EC-6D2FE240F9C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CCFB0AE-8CFF-4EF2-91A3-CAC179114139}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CCFB0AE-8CFF-4EF2-91A3-CAC179114139}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CCFB0AE-8CFF-4EF2-91A3-CAC179114139}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CCFB0AE-8CFF-4EF2-91A3-CAC179114139}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FF59033-1A5C-4A6C-A6DB-C169AD44D395}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FF59033-1A5C-4A6C-A6DB-C169AD44D395}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FF59033-1A5C-4A6C-A6DB-C169AD44D395}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FF59033-1A5C-4A6C-A6DB-C169AD44D395}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15E6B344-EB69-4DA5-82F3-D579BDD3C4BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15E6B344-EB69-4DA5-82F3-D579BDD3C4BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15E6B344-EB69-4DA5-82F3-D579BDD3C4BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15E6B344-EB69-4DA5-82F3-D579BDD3C4BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

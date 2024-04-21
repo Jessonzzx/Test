@@ -1,0 +1,34 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ClientGUI.MainPage"
+             BackgroundColor="Black">
+   <VerticalStackLayout>
+
+        <!-- Welcome View, visible by default -->
+        <StackLayout x:Name="WelcomeView" IsVisible="True">
+            <!-- Add your UI elements for the welcome view here -->
+            <Label Text="Welcome to Agario for CS 3500" 
+                   HorizontalOptions="Center" 
+                   VerticalOptions="CenterAndExpand" />
+            <Entry x:Name="NameEntry" Placeholder="Your name" />
+            <Entry x:Name="ServerEntry" Placeholder="Server IP" />
+            <Entry x:Name="PortEntry" Placeholder="Port" Text="11000" />
+            <Button x:Name="ConnectButton" Text="Connect To Server" Clicked="OnConnectClicked" />
+        </StackLayout>
+      
+        <!-- Game View, hidden by default -->
+        <GraphicsView x:Name="GameView" IsVisible="False" 
+                      HeightRequest="800" 
+                      WidthRequest="800" 
+                      VerticalOptions="FillAndExpand">
+            <!-- Gesture recognizers, attach event handlers in your .xaml.cs -->
+            <GraphicsView.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnGameViewTapped" />
+                <PanGestureRecognizer PanUpdated="OnGameViewPanUpdated" />
+                <!-- Add other gesture recognizers as required -->
+            </GraphicsView.GestureRecognizers>
+        </GraphicsView>
+
+    </VerticalStackLayout>
+
+</ContentPage>

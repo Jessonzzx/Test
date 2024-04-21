@@ -6,17 +6,17 @@
 		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
 		<!-- <TargetFrameworks>$(TargetFrameworks);net7.0-tizen</TargetFrameworks> -->
 		<OutputType>Exe</OutputType>
-		<RootNamespace>TowardAgarioStepOne</RootNamespace>
+		<RootNamespace>ClientGUI</RootNamespace>
 		<UseMaui>true</UseMaui>
 		<SingleProject>true</SingleProject>
 		<ImplicitUsings>enable</ImplicitUsings>
 
 		<!-- Display name -->
-		<ApplicationTitle>TowardAgarioStepOne</ApplicationTitle>
+		<ApplicationTitle>ClientGUI</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.towardagariostepone</ApplicationId>
-		<ApplicationIdGuid>3097c5e2-1166-4040-97b3-9ce4a8533887</ApplicationIdGuid>
+		<ApplicationId>com.companyname.clientgui</ApplicationId>
+		<ApplicationIdGuid>58640505-c560-4f00-a152-b6bb76478d4d</ApplicationIdGuid>
 
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
@@ -31,9 +31,6 @@
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios|AnyCPU'">
-	  <CreatePackage>false</CreatePackage>
-	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-ios|AnyCPU'">
 	  <CreatePackage>false</CreatePackage>
 	</PropertyGroup>
 	<ItemGroup>
@@ -58,4 +55,9 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\AgarioModels\AgarioModels.csproj" />
+	  <ProjectReference Include="..\Communiactions\Communiactions.csproj" />
+	  <ProjectReference Include="..\LoggerLibrary\LoggerLibrary.csproj" />
+	</ItemGroup>
 </Project>
