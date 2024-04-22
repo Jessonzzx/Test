@@ -10,9 +10,12 @@ namespace AgarioModels
         public Vector2 Velocity { get; set; } // The current velocity for player movement
         World world;
 
-        // You might want to track if the player is alive or has been consumed
+        // We might want to track if the player is alive or has been consumed
         public bool IsAlive { get; private set; }
         public float ARGBColor { get; set; }
+        public DateTime? TimeOfDeath { get; private set; }
+        public float RespawnTime { get; set; } = 5.0f; // seconds after death before respawning
+        public bool ShouldSplit { get; set; }
 
         // Constructor
         public Player(long id, Vector2 position, int color, float mass, string name)
@@ -24,6 +27,11 @@ namespace AgarioModels
             IsAlive = true;
         }
 
+        public void Die()
+        {
+            IsAlive = false;
+            TimeOfDeath = DateTime.Now;
+        }
         // Call this method to update the player's score
         public void AddToScore(float amount)
         {
@@ -62,13 +70,17 @@ namespace AgarioModels
                 if (ShouldSplit) // ShouldSplit would be set based on player input
                 {
                     HandleSplitting(world);
+                    ShouldSplit = false;
                 }
 
             }
-            else
+            if (!IsAlive && TimeOfDeath.HasValue)
             {
-                // Handle respawn logic if the player is not alive
-                HandleRespawn(world);
+                double timeSinceDeath = (DateTime.Now - TimeOfDeath.Value).TotalSeconds;
+                if (timeSinceDeath > RespawnTime)
+                {
+                    HandleRespawn();
+                }
             }
 
         }
@@ -108,16 +120,35 @@ namespace AgarioModels
                                                                                       // Add the new split player to the world
                 world.AddPlayer(newPlayer);
             }
+           
         }
 
-        private void HandleRespawn(World world)
+        private void HandleRespawn()
         {
-            if (!this.IsAlive && TimeSinceDeath > RespawnTime) // You'd track the time since death
-            {
+            
                 // Respawn logic here
                 this.Position = world.GetRandomPosition(); // You'd implement this method in World
                 this.Mass = 50; // Reset mass
-                this.IsAlive = true;
+                IsAlive = true;
+                TimeOfDeath = null;
+
+        }
+
+        public bool CollidesWith(Food food)
+        {
+            // Calculate the distance between the player and the food
+            float distance = Vector2.Distance(this.Position, food.Position);
+            // Check if the distance is less than the sum of the radii (assuming circles)
+            return distance < (this.Radius + food.Radius);
+        }
+
+        public void EatFood(Food food)
+        {
+            if (this.CollidesWith(food))
+            {
+                this.Mass += food.Mass; // Increase player mass
+                food.IsEaten = true; // Mark food as eaten
+                                   // ... Additional logic for updating the game state
             }
         }
     }

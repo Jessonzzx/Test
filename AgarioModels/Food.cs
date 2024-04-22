@@ -5,7 +5,7 @@ namespace AgarioModels
 {
     public class Food : GameObject
     {
-        public bool IsEaten { get; private set; }
+        public bool IsEaten { get; set; }
 
         // Constructor
         public Food(long id, Vector2 position, int color, float mass)

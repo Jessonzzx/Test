@@ -1,34 +1,58 @@
-﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ClientGUI.MainPage"
              BackgroundColor="Black">
-   <VerticalStackLayout>
 
-        <!-- Welcome View, visible by default -->
-        <StackLayout x:Name="WelcomeView" IsVisible="True">
-            <!-- Add your UI elements for the welcome view here -->
-            <Label Text="Welcome to Agario for CS 3500" 
-                   HorizontalOptions="Center" 
-                   VerticalOptions="CenterAndExpand" />
-            <Entry x:Name="NameEntry" Placeholder="Your name" />
-            <Entry x:Name="ServerEntry" Placeholder="Server IP" />
-            <Entry x:Name="PortEntry" Placeholder="Port" Text="11000" />
-            <Button x:Name="ConnectButton" Text="Connect To Server" Clicked="OnConnectClicked" />
-        </StackLayout>
-      
-        <!-- Game View, hidden by default -->
-        <GraphicsView x:Name="GameView" IsVisible="False" 
-                      HeightRequest="800" 
-                      WidthRequest="800" 
-                      VerticalOptions="FillAndExpand">
-            <!-- Gesture recognizers, attach event handlers in your .xaml.cs -->
-            <GraphicsView.GestureRecognizers>
-                <TapGestureRecognizer Tapped="OnGameViewTapped" />
-                <PanGestureRecognizer PanUpdated="OnGameViewPanUpdated" />
-                <!-- Add other gesture recognizers as required -->
-            </GraphicsView.GestureRecognizers>
-        </GraphicsView>
+    <!-- Adopting styles from the sample code -->
+    <ContentPage.Resources>
+        <Style TargetType="Entry">
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light='Azure', Dark='Blue'}" />
+            <Setter Property="TextColor" Value="{AppThemeBinding Light='Black', Dark='PaleTurquoise'}" />
+        </Style>
+    </ContentPage.Resources>
 
-    </VerticalStackLayout>
+      <VerticalStackLayout>
+
+        <!-- Welcome View -->
+        <VerticalStackLayout x:Name="WelcomeView" IsVisible="True">
+            <Label Text="Welcome to Agar.io for CS 3500" HorizontalOptions="Center"/>
+            <Entry x:Name="playerNameEntry" Placeholder="Enter name"/>
+            <Entry x:Name="serverAddressEntry" Placeholder="Server address"/>
+            <Entry x:Name="serverPortEntry" Placeholder="Enter port" Keyboard="Numeric"/>
+            <Button x:Name="connectButton" Text="Connect to Server" Clicked="OnConnectButtonClicked"/>
+            <Label x:Name="statusLabel" TextColor="Red"/>
+        </VerticalStackLayout>
+
+  
+           <!-- Game View -->
+        <VerticalStackLayout x:Name="GameView" IsVisible="False">
+            <GraphicsView
+                x:Name="PlaySurface"
+                VerticalOptions="FillAndExpand"
+                HeightRequest="800"
+                WidthRequest="800"
+                BackgroundColor="Blue">
+                <!-- Gesture Recognizers if needed -->
+            </GraphicsView>
+            <!-- Additional UI components for game control could go here -->
+             <Button x:Name="splitButton" Text="Split" Clicked="OnSplitButtonClicked" HorizontalOptions="Center" />
+        </VerticalStackLayout>
+
+            <!-- GraphicsView for game display, now using styles -->
+            <GraphicsView
+                x:Name="PlaySurface"
+                VerticalOptions="FillAndExpand"
+                HeightRequest="800"
+                WidthRequest="800"
+                BackgroundColor="Blue"/>
+
+            <!-- Additional UI components for game control -->
+            <Button x:Name="InvalidateBtn" Text="Redraw" Clicked="InvalidateBtnClicked" HorizontalOptions="Fill"/>
+
+            <!-- Continuous update checkbox -->
+            <CheckBox x:Name="InvalidateAlwaysCheckBox" CheckedChanged="InvalidateAlwaysBtnClicked"/>
+            <Label Text="Continuous Update" VerticalOptions="Center"/>
+        </VerticalStackLayout>
 
 </ContentPage>

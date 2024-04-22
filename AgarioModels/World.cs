@@ -13,6 +13,7 @@ namespace AgarioModels
         public const int Width = 5000;
         public const int Height = 5000;
         private long _nextId = 0;
+        public Player CurrentPlayer { get; set; }
 
         /// <summary>
         /// 
@@ -22,6 +23,11 @@ namespace AgarioModels
         {
             _players.Add(player);
             _gameObjects[player.Id] = player; // Add to the general game objects as well
+        }
+
+        public void SetCurrentPlayer(long playerId)
+        {
+            CurrentPlayer = _players.FirstOrDefault(p => p.Id == playerId);
         }
 
         /// <summary>
